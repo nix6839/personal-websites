@@ -1,0 +1,19 @@
+# compiled output
+dist/
+
+# generated types
+.astro/
+
+# dependencies
+node_modules/
+
+# Editor - VSCode
+.vscode/*
+!.vscode/extensions.json
+
+# environment variables
+nx-cloud.env
+
+# System Files
+.DS_Store
+Thumbs.db

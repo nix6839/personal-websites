@@ -1,0 +1,21 @@
+{
+  "name": "portfolio-website",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "lint": "eslint \"**/*.{astro,ts}\"",
+    "type:check": "tsc && astro check"
+  },
+  "dependencies": {
+    "astro": "3.0.5"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.2.0",
+    "typescript": "5.2.2"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "personal-websites",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "nx affected --target=build",
+    "lint": "nx affected --target=lint",
+    "type:check": "nx affected --target=type:check",
+    "format": "prettier \"**/*.{astro,ts,cjs,json,md,yml,yaml}\" --write --ignore-path ./.gitignore --ignore-path ./.prettierignore",
+    "format:check": "prettier \"**/*.{astro,ts,cjs,json,md,yml,yaml}\" --check --ignore-path ./.gitignore --ignore-path ./.prettierignore"
+  },
+  "devDependencies": {
+    "@nix6839/prettier-config": "1.0.8",
+    "@types/prettier": "2.7.3",
+    "@typescript-eslint/eslint-plugin": "6.5.0",
+    "@typescript-eslint/parser": "6.5.0",
+    "eslint": "8.48.0",
+    "eslint-config-prettier": "9.0.0",
+    "eslint-plugin-astro": "0.29.0",
+    "nx": "16.7.4",
+    "nx-cloud": "16.3.0",
+    "prettier": "2.8.8",
+    "prettier-plugin-astro": "0.10.0",
+    "prettier-plugin-tailwindcss": "0.4.1"
+  },
+  "packageManager": "pnpm@8.7.1+sha256.9f0febfd67c8f4317f4cf2edbf2ff4bf326f0e7dbb2b5b03aa05248f9faa26c5"
+}
