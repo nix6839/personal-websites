@@ -42,7 +42,9 @@ jobs:
         run: pnpm build
 
       - name: Deploy
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/pages-action@v1
         with:
-          apiToken: ${{ secrets.CF_API_TOKEN }}
-          command: pages deploy ./apps/portfolio/dist/ --project-name=portfolio
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID}}
+          projectName: portfolio
+          directory: ./apps/portfolio/dist/
