@@ -5,9 +5,9 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "build": "nx affected --target=build",
-    "lint": "nx affected --target=lint",
-    "type:check": "nx affected --target=type:check",
+    "build": "nx run-many --target=build",
+    "lint": "nx run-many --target=lint",
+    "type:check": "nx run-many --target=type:check",
     "format": "prettier \"**/*.{astro,ts,cjs,json,md,yml,yaml}\" --write --ignore-path ./.gitignore --ignore-path ./.prettierignore",
     "format:check": "prettier \"**/*.{astro,ts,cjs,json,md,yml,yaml}\" --check --ignore-path ./.gitignore --ignore-path ./.prettierignore"
   },
