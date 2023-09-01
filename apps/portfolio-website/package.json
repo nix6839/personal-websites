@@ -13,7 +13,9 @@
     "fetch-fonts": "fetch-pretendard --font-output-dir ./public/fonts --css-output-path ./src/styles/pretendardvariable-dynamic-subset.css --css-url 'https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/variable/pretendardvariable-dynamic-subset.css'"
   },
   "dependencies": {
-    "astro": "3.0.5"
+    "@astrojs/tailwind": "5.0.0",
+    "astro": "3.0.5",
+    "tailwindcss": "3.3.3"
   },
   "devDependencies": {
     "@astrojs/check": "0.2.0",
