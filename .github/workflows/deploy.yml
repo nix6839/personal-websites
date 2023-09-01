@@ -1,0 +1,51 @@
+name: Deploy to Cloudflare Pages
+
+on:
+  workflow_run:
+    workflows: ['CI']
+    types: ['completed']
+
+  workflow_dispatch:
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
+env:
+  NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
+
+jobs:
+  deploy-on-ci-success:
+    runs-on: ubuntu-latest
+
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v3
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8.7.1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm i --frozen-lockfile
+
+      - name: Build
+        run: pnpm build
+
+      - name: Deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          command: pages deploy ./apps/portfolio/dist/ --project-name=portfolio
