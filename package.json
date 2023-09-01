@@ -8,8 +8,8 @@
     "build": "nx run-many --target=build",
     "lint": "nx run-many --target=lint",
     "type:check": "nx run-many --target=type:check",
-    "format": "prettier \"**/*.{astro,ts,cjs,json,md,yml,yaml}\" --write --ignore-path ./.gitignore --ignore-path ./.prettierignore",
-    "format:check": "prettier \"**/*.{astro,ts,cjs,json,md,yml,yaml}\" --check --ignore-path ./.gitignore --ignore-path ./.prettierignore"
+    "format": "prettier \"**/*.{astro,ts,cjs,css,json,md,yml,yaml}\" --write --ignore-path ./.gitignore --ignore-path ./.prettierignore",
+    "format:check": "prettier \"**/*.{astro,ts,cjs,css,json,md,yml,yaml}\" --check --ignore-path ./.gitignore --ignore-path ./.prettierignore"
   },
   "devDependencies": {
     "@nix6839/prettier-config": "1.0.8",
