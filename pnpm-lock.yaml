@@ -11,6 +11,9 @@ importers:
       '@nix6839/prettier-config':
         specifier: 1.0.8
         version: 1.0.8(@types/prettier@2.7.3)(prettier@2.8.8)
+      '@types/eslint':
+        specifier: 8.44.2
+        version: 8.44.2
       '@types/prettier':
         specifier: 2.7.3
         version: 2.7.3
@@ -1152,9 +1155,15 @@ packages:
       '@types/ms': 0.7.31
     dev: false
 
+  /@types/eslint@8.44.2:
+    resolution: {integrity: sha512-sdPRb9K6iL5XZOmBubg8yiFp5yS/JdUDQsq5e6h95km91MCYMuvp7mh1fjPEYUhvHepKpZOjnEaMBR4PxjWDzg==}
+    dependencies:
+      '@types/estree': 1.0.1
+      '@types/json-schema': 7.0.12
+    dev: true
+
   /@types/estree@1.0.1:
     resolution: {integrity: sha512-LG4opVs2ANWZ1TJoKc937iMmNstM/d0ae1vNbnBvBhqCSezgVUOzcLCqbI5elV8Vy6WKwKjaqR+zO9VKirBBCA==}
-    dev: false
 
   /@types/hast@2.3.5:
     resolution: {integrity: sha512-SvQi0L/lNpThgPoleH53cdjB3y9zpLlVjRbqB3rH8hx1jiRSBGAhyjV3H+URFjNVRqt2EdYNrbZE5IsGlNfpRg==}
