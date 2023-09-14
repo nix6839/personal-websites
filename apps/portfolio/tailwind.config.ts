@@ -1,4 +1,5 @@
 import tailwindColors from 'tailwindcss/colors.js';
+import defaultTheme from 'tailwindcss/defaultTheme.js';
 
 import type { Config } from 'tailwindcss';
 
@@ -14,6 +15,27 @@ const config = {
   },
 
   theme: {
+    fontFamily: {
+      default: [
+        '"Pretendard Variable"',
+        'Pretendard',
+        '-apple-system',
+        'BlinkMacSystemFont',
+        'system-ui',
+        'Roboto',
+        '"Helvetica Neue"',
+        '"Segoe UI"',
+        '"Apple SD Gothic Neo"',
+        '"Noto Sans KR"',
+        '"Malgun Gothic"',
+        '"Apple Color Emoji"',
+        '"Segoe UI Emoji"',
+        '"Segoe UI Symbol"',
+        'sans-serif',
+      ],
+      mono: ['"JetBrains Mono"', ...defaultTheme.fontFamily.mono],
+    },
+
     backgroundColor: {
       primary: {
         DEFAULT: COLORS.zinc['900'],
