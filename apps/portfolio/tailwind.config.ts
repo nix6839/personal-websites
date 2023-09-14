@@ -60,19 +60,17 @@ const config = {
       tertiary: {
         DEFAULT: COLORS.zinc['300'],
       },
+
+      icon: {
+        primary: {
+          DEFAULT: COLORS.zinc['200'],
+        },
+      },
     },
 
     borderColor: {
       primary: {
         DEFAULT: COLORS.zinc['500'],
-      },
-    },
-
-    fill: {
-      icon: {
-        primary: {
-          DEFAULT: COLORS.zinc['200'],
-        },
       },
     },
   },
