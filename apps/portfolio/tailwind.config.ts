@@ -4,7 +4,7 @@ import defaultTheme from 'tailwindcss/defaultTheme.js';
 import type { Config } from 'tailwindcss';
 
 const COLORS = {
-  ...tailwindColors,
+  zinc: tailwindColors.zinc,
   brand: '#b4ec94',
 } as const;
 
