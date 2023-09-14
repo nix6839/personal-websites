@@ -8,7 +8,9 @@ interface Props extends HTMLAttributes<'button'> {
   type?: NonNullable<HTMLAttributes<'button'>['type']>;
 }
 
-const { type = 'button', ...restProps } = Astro.props;
+const { type = 'button', class: className, ...restProps } = Astro.props;
 ---
 
-<button {type} {...restProps}><slot /></button>
+<button {type} class={className} {...restProps}>
+  <slot />
+</button>
