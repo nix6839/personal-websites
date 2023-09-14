@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@astrojs/tailwind": "5.0.0",
-    "astro": "3.0.5",
+    "astro": "3.0.13",
     "tailwindcss": "3.3.3"
   },
   "devDependencies": {
