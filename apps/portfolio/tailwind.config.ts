@@ -1,5 +1,6 @@
 import tailwindColors from 'tailwindcss/colors.js';
 import defaultTheme from 'tailwindcss/defaultTheme.js';
+import plugin from 'tailwindcss/plugin.js';
 
 import type { Config } from 'tailwindcss';
 
@@ -73,6 +74,16 @@ const config = {
       },
     },
   },
+
+  plugins: [
+    plugin(({ addUtilities }) => {
+      addUtilities({
+        '.scheme-dark': {
+          colorScheme: 'dark',
+        },
+      });
+    }),
+  ],
 } satisfies Config;
 
 export default config;
