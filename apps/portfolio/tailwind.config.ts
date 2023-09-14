@@ -5,6 +5,7 @@ import plugin from 'tailwindcss/plugin.js';
 import type { Config } from 'tailwindcss';
 
 const COLORS = {
+  transparent: tailwindColors.transparent,
   zinc: tailwindColors.zinc,
   brand: '#b4ec94',
 } as const;
@@ -38,6 +39,7 @@ const config = {
     },
 
     backgroundColor: {
+      transparent: COLORS.transparent,
       primary: {
         DEFAULT: COLORS.zinc['900'],
       },
