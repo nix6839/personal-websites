@@ -35,7 +35,7 @@ jobs:
 
             | Name | Link |
             | ---- | ---- |
-            | **Latest commit** | ${{ github.sha }} |
+            | **Latest commit** | ${{ github.event.workflow_run.head_sha }} |
             | **Latest deploy log** | ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} |
 
       - name: Checkout
@@ -84,7 +84,7 @@ jobs:
 
             | Name | Link |
             | ---- | ---- |
-            | **Latest commit** | ${{ github.sha }} |
+            | **Latest commit** | ${{ github.event.workflow_run.head_sha }} |
             | **Latest deploy log** | ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} |
             | **Preview URL (Latest)** | ${{ steps.deploy-cloudflare-pages.outputs.url }} |
             | **Preview URL (Branch)** | ${{ steps.deploy-cloudflare-pages.outputs.alias }} |
