@@ -1,11 +1,17 @@
 ---
 import '../styles/index.css';
 
+import Button from '../components/Button.astro';
+import InternalLink from '../components/InternalLink.astro';
+
 interface Props {
   title: string;
 }
 
 const { title } = Astro.props;
+
+const openNavButtonId = 'open-nav-button';
+const navId = 'nav-menu';
 ---
 
 <!DOCTYPE html>
@@ -17,6 +23,38 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
+    <header>
+      <div>
+        <span aria-hidden="true">yeong-woo.<span>han</span></span>
+        <Button
+          id={openNavButtonId}
+          aria-label="탐색 메뉴 열기"
+          aria-expanded="false"
+          aria-controls="nav-menu"
+        >
+          <svg width="32" height="32" fill="none" viewBox="0 0 48 48">
+            <path
+              fill="currentColor"
+              d="M42 24a1.5 1.5 0 0 1-1.5 1.5h-33a1.5 1.5 0 1 1 0-3h33A1.5 1.5 0 0 1 42 24ZM7.5 13.5h33a1.5 1.5 0 1 0 0-3h-33a1.5 1.5 0 1 0 0 3Zm33 21h-33a1.5 1.5 0 1 0 0 3h33a1.5 1.5 0 1 0 0-3Z"
+            ></path>
+          </svg>
+        </Button>
+      </div>
+
+      <nav id={navId} class="hidden">
+        <ul>
+          <li>
+            <InternalLink href="/">홈</InternalLink>
+          </li>
+          <li>
+            <InternalLink href="/works">작업물</InternalLink>
+          </li>
+          <li>
+            <a href="https://blog.yeongwoo.dev/">블로그</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
     <slot />
   </body>
 </html>
