@@ -3,6 +3,7 @@ import '../styles/index.css';
 
 import Button from '../components/Button.astro';
 import InternalLink from '../components/InternalLink.astro';
+import { listIconPath } from '../icon-path.js';
 
 interface Props {
   title: string;
@@ -33,10 +34,7 @@ const navId = 'nav-menu';
           aria-controls="nav-menu"
         >
           <svg width="32" height="32" fill="none" viewBox="0 0 48 48">
-            <path
-              fill="currentColor"
-              d="M42 24a1.5 1.5 0 0 1-1.5 1.5h-33a1.5 1.5 0 1 1 0-3h33A1.5 1.5 0 0 1 42 24ZM7.5 13.5h33a1.5 1.5 0 1 0 0-3h-33a1.5 1.5 0 1 0 0 3Zm33 21h-33a1.5 1.5 0 1 0 0 3h33a1.5 1.5 0 1 0 0-3Z"
-            ></path>
+            <path fill="currentColor" d={listIconPath}></path>
           </svg>
         </Button>
       </div>
@@ -58,3 +56,39 @@ const navId = 'nav-menu';
     <slot />
   </body>
 </html>
+
+<script>
+  import { listIconPath, xIconPath } from '../icon-path.js';
+
+  const openNavButton = document.getElementById('open-nav-button');
+  if (!(openNavButton instanceof HTMLButtonElement)) {
+    throw new Error('Can not find "open-nav-button" element');
+  }
+  const buttonIconPath = openNavButton.getElementsByTagName('path').item(0);
+  if (!(buttonIconPath instanceof SVGPathElement)) {
+    throw new Error('Can not find <path> child of "open-nav-button" element');
+  }
+
+  const controlledId = openNavButton.getAttribute('aria-controls');
+  if (controlledId === null) {
+    throw new Error('There is no controlled element by "open-nav-button"');
+  }
+  const nav = document.getElementById(controlledId);
+  if (!(nav instanceof HTMLElement)) {
+    throw new Error('Can not find "nav-menu" element');
+  }
+
+  openNavButton.addEventListener('click', function () {
+    const ariaExpanded = this.ariaExpanded === 'true' ? true : false;
+
+    if (ariaExpanded) {
+      nav.classList.replace('flex', 'hidden');
+      buttonIconPath.setAttribute('d', listIconPath);
+      this.ariaExpanded = 'false';
+    } else {
+      nav.classList.replace('hidden', 'flex');
+      buttonIconPath.setAttribute('d', xIconPath);
+      this.ariaExpanded = 'true';
+    }
+  });
+</script>
