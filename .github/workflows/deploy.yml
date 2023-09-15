@@ -28,6 +28,7 @@ jobs:
         if: ${{ github.event.workflow_run.event != 'push' }}
         uses: mshick/add-pr-comment@v2
         with:
+          issue: ${{ github.event.workflow_run.pull_requests.number }}
           message-id: cloudflare-pages-preview-deployment
           message: |
             ## <span aria-hidden="true">📤</span> Start Deploying preview...
@@ -76,6 +77,7 @@ jobs:
         if: ${{ github.event.workflow_run.event != 'push' }}
         uses: mshick/add-pr-comment@v2
         with:
+          issue: ${{ github.event.workflow_run.pull_requests.number }}
           message-id: cloudflare-pages-preview-deployment
           message: |
             ## <span aria-hidden="true">✅</span> Preview Deployed Successfully!
