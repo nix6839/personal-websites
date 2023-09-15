@@ -3,15 +3,15 @@ import { listIconPath } from '../icon-path.js';
 import Button from './Button.astro';
 import InternalLink from './InternalLink.astro';
 
-const openNavButtonId = 'open-nav-button';
-const navId = 'nav-menu';
+const OPEN_NAV_BUTTON_ID = 'open-nav-button';
+const NAV_ID = 'nav-menu';
 ---
 
 <header>
   <div>
     <span aria-hidden="true">yeong-woo.<span>han</span></span>
     <Button
-      id={openNavButtonId}
+      id={OPEN_NAV_BUTTON_ID}
       aria-label="탐색 메뉴 열기"
       aria-expanded="false"
       aria-controls="nav-menu"
@@ -22,7 +22,7 @@ const navId = 'nav-menu';
     </Button>
   </div>
 
-  <nav id={navId} class="hidden">
+  <nav id={NAV_ID} class="hidden">
     <ul>
       <li>
         <InternalLink href="/">홈</InternalLink>
@@ -40,22 +40,30 @@ const navId = 'nav-menu';
 <script>
   import { listIconPath, xIconPath } from '../icon-path.js';
 
-  const openNavButton = document.getElementById('open-nav-button');
+  const OPEN_NAV_BUTTON_ID = 'open-nav-button';
+
+  const openNavButton = document.getElementById(OPEN_NAV_BUTTON_ID);
   if (!(openNavButton instanceof HTMLButtonElement)) {
-    throw new Error('Can not find "open-nav-button" element');
+    throw new Error(`Can not find "${OPEN_NAV_BUTTON_ID}" element`);
   }
   const buttonIconPath = openNavButton.getElementsByTagName('path').item(0);
   if (!(buttonIconPath instanceof SVGPathElement)) {
-    throw new Error('Can not find <path> child of "open-nav-button" element');
+    throw new Error(
+      `Can not find <path> child of "${OPEN_NAV_BUTTON_ID}" element`,
+    );
   }
 
   const controlledId = openNavButton.getAttribute('aria-controls');
   if (controlledId === null) {
-    throw new Error('There is no controlled element by "open-nav-button"');
+    throw new Error(
+      `There is no controlled element by "${OPEN_NAV_BUTTON_ID}"`,
+    );
   }
   const nav = document.getElementById(controlledId);
   if (!(nav instanceof HTMLElement)) {
-    throw new Error('Can not find "nav-menu" element');
+    throw new Error(
+      `Can not find "${controlledId}" element that controlled by "${OPEN_NAV_BUTTON_ID}"`,
+    );
   }
 
   openNavButton.addEventListener('click', function () {
