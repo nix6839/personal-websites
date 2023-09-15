@@ -3,13 +3,21 @@ import { listIconPath } from '../icon-path.js';
 import Button from './Button.astro';
 import InternalLink from './InternalLink.astro';
 
+export type { Props as HeaderProps };
+
+interface Props {
+  pageName: string;
+}
+
+const { pageName } = Astro.props;
+
 const OPEN_NAV_BUTTON_ID = 'open-nav-button';
 const NAV_ID = 'nav-menu';
 ---
 
 <header>
   <div>
-    <span aria-hidden="true">yeong-woo.<span>han</span></span>
+    <span aria-hidden="true">yeong-woo.<span>{pageName}</span></span>
     <Button
       id={OPEN_NAV_BUTTON_ID}
       aria-label="탐색 메뉴 열기"
