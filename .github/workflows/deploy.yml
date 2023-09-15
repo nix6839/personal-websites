@@ -11,6 +11,9 @@ concurrency:
   group: 'pages'
   cancel-in-progress: true
 
+permissions:
+  pull-requests: write
+
 env:
   NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
 
@@ -21,6 +24,19 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
 
     steps:
+      - name: Comment start deploying preview
+        if: ${{ github.event.workflow_run.event != 'push' }}
+        uses: mshick/add-pr-comment@v2
+        with:
+          message-id: cloudflare-pages-preview-deployment
+          message: |
+            ## <span aria-hidden="true">📤</span> Start Deploying preview...
+
+            | Name | Link |
+            | ---- | ---- |
+            | **Latest commit** | ${{ github.sha }} |
+            | **Latest deploy log** | ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} |
+
       - name: Checkout
         uses: actions/checkout@v4
         with:
@@ -49,8 +65,24 @@ jobs:
 
       - name: Deploy
         uses: cloudflare/pages-action@v1
+        id: deploy-cloudflare-pages
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: portfolio
           directory: ./apps/portfolio/dist/
+
+      - name: Comment preview deployed successful
+        if: ${{ github.event.workflow_run.event != 'push' }}
+        uses: mshick/add-pr-comment@v2
+        with:
+          message-id: cloudflare-pages-preview-deployment
+          message: |
+            ## <span aria-hidden="true">✅</span> Preview Deployed Successfully!
+
+            | Name | Link |
+            | ---- | ---- |
+            | **Latest commit** | ${{ github.sha }} |
+            | **Latest deploy log** | ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} |
+            | **Preview URL (Latest)** | ${{ steps.deploy-cloudflare-pages.outputs.url }} |
+            | **Preview URL (Branch)** | ${{ steps.deploy-cloudflare-pages.outputs.alias }} |
