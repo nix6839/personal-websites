@@ -76,7 +76,16 @@ const config = {
   },
 
   plugins: [
-    plugin(({ addUtilities }) => {
+    plugin(({ addBase, addUtilities, theme }) => {
+      // From https://tailwindcss.com/docs/preflight#border-styles-are-reset-globally
+      addBase({
+        '*, ::before, ::after': {
+          borderWidth: '0',
+          borderStyle: 'solid',
+          borderColor: theme('borderColor.primary.DEFAULT'),
+        },
+      });
+
       addUtilities({
         '.scheme-dark': {
           colorScheme: 'dark',
