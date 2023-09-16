@@ -24,3 +24,7 @@ ul {
 address {
   font-style: inherit;
 }
+
+img {
+  display: block;
+}
