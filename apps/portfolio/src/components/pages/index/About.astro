@@ -1,0 +1,60 @@
+---
+import EnvelopeSimpleIcon from '../../icons/EnvelopeSimpleIcon.astro';
+import GitHubIcon from '../../icons/GitHubIcon.astro';
+import PencilSimpleLineIcon from '../../icons/PencilSimpleLineIcon.astro';
+
+import type { IconProps } from '../../icons/type';
+
+interface Contact {
+  icon: (_props: IconProps) => any;
+  name: string;
+  href: string;
+}
+
+const contacts: Contact[] = [
+  {
+    icon: GitHubIcon,
+    name: 'GitHub',
+    href: 'https://github.com/nix6839',
+  },
+  {
+    icon: EnvelopeSimpleIcon,
+    name: 'Email',
+    href: 'mailto:han@yeongwoo.dev',
+  },
+  {
+    icon: PencilSimpleLineIcon,
+    name: 'Blog',
+    href: 'https://blog.yeongwoo.dev',
+  },
+];
+---
+
+<section>
+  <svg width="6rem" height="6rem" viewBox="0 0 48 48" aria-hidden="true">
+    <path
+      fill="#f4f4f4"
+      d="M24 48c13.255 0 24-10.745 24-24S37.255 0 24 0 0 10.745 0 24s10.745 24 24 24Z"
+    ></path>
+    <path
+      fill="#b4ec94"
+      d="M21 9H6v15h15V9Zm-7.5 19.5v15h21v-15H27V36h-6v-7.5h-7.5ZM42 9H27v15h15V9Z"
+    ></path>
+  </svg>
+
+  <h1>Han Yeong-woo</h1>
+  <p>
+    <span>프론트엔드 개발자</span>로, 항상 최신 트렌드를 따라가기 위해 노력하고
+    있습니다.
+  </p>
+  <address>
+    {
+      contacts.map(({ icon: Icon, name, href }) => (
+        <a {href}>
+          <Icon width="1.625rem" height="1.625rem" aria-hidden="true" />
+          {name}
+        </a>
+      ))
+    }
+  </address>
+</section>
