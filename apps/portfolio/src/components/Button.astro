@@ -1,0 +1,23 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'button'> {
+  /**
+   * @default 'button'
+   */
+  type?: NonNullable<HTMLAttributes<'button'>['type']>;
+}
+
+const { type = 'button', class: className, ...restProps } = Astro.props;
+---
+
+<button
+  {type}
+  class:list={[
+    'bg-transparent border-0 cursor-pointer inline-flex items-center justify-center',
+    className,
+  ]}
+  {...restProps}
+>
+  <slot />
+</button>

@@ -5,6 +5,7 @@ import plugin from 'tailwindcss/plugin.js';
 import type { Config } from 'tailwindcss';
 
 const COLORS = {
+  transparent: tailwindColors.transparent,
   zinc: tailwindColors.zinc,
   brand: '#b4ec94',
 } as const;
@@ -37,7 +38,13 @@ const config = {
       mono: ['"JetBrains Mono"', ...defaultTheme.fontFamily.mono],
     },
 
+    fontWeight: {
+      regular: '400',
+      bold: '700',
+    },
+
     backgroundColor: {
+      transparent: COLORS.transparent,
       primary: {
         DEFAULT: COLORS.zinc['900'],
       },
@@ -58,6 +65,12 @@ const config = {
       tertiary: {
         DEFAULT: COLORS.zinc['300'],
       },
+
+      icon: {
+        primary: {
+          DEFAULT: COLORS.zinc['200'],
+        },
+      },
     },
 
     borderColor: {
@@ -65,18 +78,19 @@ const config = {
         DEFAULT: COLORS.zinc['500'],
       },
     },
-
-    fill: {
-      icon: {
-        primary: {
-          DEFAULT: COLORS.zinc['200'],
-        },
-      },
-    },
   },
 
   plugins: [
-    plugin(({ addUtilities }) => {
+    plugin(({ addBase, addUtilities, theme }) => {
+      // From https://tailwindcss.com/docs/preflight#border-styles-are-reset-globally
+      addBase({
+        '*, ::before, ::after': {
+          borderWidth: '0',
+          borderStyle: 'solid',
+          borderColor: theme('borderColor.primary.DEFAULT'),
+        },
+      });
+
       addUtilities({
         '.scheme-dark': {
           colorScheme: 'dark',
