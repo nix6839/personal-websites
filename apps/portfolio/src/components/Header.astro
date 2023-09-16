@@ -15,9 +15,12 @@ const OPEN_NAV_BUTTON_ID = 'open-nav-button';
 const NAV_ID = 'nav-menu';
 ---
 
-<header>
-  <div>
-    <span aria-hidden="true">yeong-woo.<span>{pageName}</span></span>
+<header class="sticky top-0 border-b bg-primary">
+  <div data-expanded="true" class="flex items-center justify-between p-5">
+    <span aria-hidden="true" class="font-mono text-[1.5rem]">
+      <span class="text-primary">yeong-woo.</span>
+      <span class="text-brand">{pageName}</span>
+    </span>
     <Button
       id={OPEN_NAV_BUTTON_ID}
       aria-label="탐색 메뉴 열기"
@@ -33,13 +36,28 @@ const NAV_ID = 'nav-menu';
   <nav id={NAV_ID} class="hidden">
     <ul>
       <li>
-        <InternalLink href="/">홈</InternalLink>
+        <InternalLink
+          href="/"
+          class="block p-6 text-[1.5rem] font-bold text-secondary"
+        >
+          홈
+        </InternalLink>
       </li>
       <li>
-        <InternalLink href="/works">작업물</InternalLink>
+        <InternalLink
+          href="/works"
+          class="block p-6 text-[1.5rem] font-bold text-secondary"
+        >
+          작업물
+        </InternalLink>
       </li>
       <li>
-        <a href="https://blog.yeongwoo.dev/">블로그</a>
+        <a
+          href="https://blog.yeongwoo.dev/"
+          class="block p-6 text-[1.5rem] font-bold text-secondary"
+        >
+          블로그
+        </a>
       </li>
     </ul>
   </nav>
@@ -78,11 +96,11 @@ const NAV_ID = 'nav-menu';
     const ariaExpanded = this.ariaExpanded === 'true' ? true : false;
 
     if (ariaExpanded) {
-      nav.classList.replace('flex', 'hidden');
+      nav.classList.replace('block', 'hidden');
       buttonIconPath.setAttribute('d', listIconPath);
       this.ariaExpanded = 'false';
     } else {
-      nav.classList.replace('hidden', 'flex');
+      nav.classList.replace('hidden', 'block');
       buttonIconPath.setAttribute('d', xIconPath);
       this.ariaExpanded = 'true';
     }
