@@ -68,40 +68,40 @@ const NAV_ID = 'nav-menu';
 
   const OPEN_NAV_BUTTON_ID = 'open-nav-button';
 
-  const openNavButton = document.getElementById(OPEN_NAV_BUTTON_ID);
-  if (!(openNavButton instanceof HTMLButtonElement)) {
+  const openNavButtonEl = document.getElementById(OPEN_NAV_BUTTON_ID);
+  if (!(openNavButtonEl instanceof HTMLButtonElement)) {
     throw new Error(`Can not find "${OPEN_NAV_BUTTON_ID}" element`);
   }
-  const buttonIconPath = openNavButton.getElementsByTagName('path').item(0);
-  if (!(buttonIconPath instanceof SVGPathElement)) {
+  const buttonIconPathEl = openNavButtonEl.getElementsByTagName('path').item(0);
+  if (!(buttonIconPathEl instanceof SVGPathElement)) {
     throw new Error(
       `Can not find <path> child of "${OPEN_NAV_BUTTON_ID}" element`,
     );
   }
 
-  const controlledId = openNavButton.getAttribute('aria-controls');
+  const controlledId = openNavButtonEl.getAttribute('aria-controls');
   if (controlledId === null) {
     throw new Error(
       `There is no controlled element by "${OPEN_NAV_BUTTON_ID}"`,
     );
   }
-  const nav = document.getElementById(controlledId);
-  if (!(nav instanceof HTMLElement)) {
+  const navEl = document.getElementById(controlledId);
+  if (!(navEl instanceof HTMLElement)) {
     throw new Error(
       `Can not find "${controlledId}" element that controlled by "${OPEN_NAV_BUTTON_ID}"`,
     );
   }
 
-  openNavButton.addEventListener('click', function () {
-    const ariaExpanded = this.ariaExpanded === 'true' ? true : false;
+  openNavButtonEl.addEventListener('click', function () {
+    const isAriaExpanded = this.ariaExpanded === 'true' ? true : false;
 
-    if (ariaExpanded) {
-      nav.classList.replace('block', 'hidden');
-      buttonIconPath.setAttribute('d', listIconPath);
+    if (isAriaExpanded) {
+      navEl.classList.replace('block', 'hidden');
+      buttonIconPathEl.setAttribute('d', listIconPath);
       this.ariaExpanded = 'false';
     } else {
-      nav.classList.replace('hidden', 'block');
-      buttonIconPath.setAttribute('d', xIconPath);
+      navEl.classList.replace('hidden', 'block');
+      buttonIconPathEl.setAttribute('d', xIconPath);
       this.ariaExpanded = 'true';
     }
   });
