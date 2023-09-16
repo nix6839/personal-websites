@@ -1,4 +1,5 @@
 ---
+import Links from '../core/links.js';
 import { listIconPath } from '../icon-path.js';
 import Button from './Button.astro';
 import InternalLink from './InternalLink.astro';
@@ -41,7 +42,7 @@ const NAV_ID = 'nav-menu';
     <ul>
       <li>
         <InternalLink
-          href="/"
+          href={Links.root}
           class="block p-6 text-[1.5rem] font-bold text-secondary"
         >
           홈
@@ -49,7 +50,7 @@ const NAV_ID = 'nav-menu';
       </li>
       <li>
         <InternalLink
-          href="/works"
+          href={Links.works}
           class="block p-6 text-[1.5rem] font-bold text-secondary"
         >
           작업물
