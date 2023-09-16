@@ -33,7 +33,11 @@ const NAV_ID = 'nav-menu';
     </Button>
   </div>
 
-  <nav id={NAV_ID} class="hidden">
+  <nav
+    id={NAV_ID}
+    class="overflow-y-hidden transition-[height] duration-500"
+    style={{ height: 0 }}
+  >
     <ul>
       <li>
         <InternalLink
@@ -96,11 +100,11 @@ const NAV_ID = 'nav-menu';
     const isAriaExpanded = this.ariaExpanded === 'true' ? true : false;
 
     if (isAriaExpanded) {
-      navEl.classList.replace('block', 'hidden');
+      navEl.style.height = '0';
       buttonIconPathEl.setAttribute('d', listIconPath);
       this.ariaExpanded = 'false';
     } else {
-      navEl.classList.replace('hidden', 'block');
+      navEl.style.height = `${navEl.scrollHeight}px`;
       buttonIconPathEl.setAttribute('d', xIconPath);
       this.ariaExpanded = 'true';
     }
