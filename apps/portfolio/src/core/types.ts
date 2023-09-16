@@ -1,2 +1,11 @@
-export type WorksLink = '/works';
-export type WorkLink<Slug extends string> = `${WorksLink}/${Slug}`;
+const Links = {
+  works: '/works',
+  work(slug: string) {
+    return `${this.works}/${slug}` as const;
+  },
+} as const;
+
+export default Links;
+
+export type WorksLink = (typeof Links)['works'];
+export type WorkLink = ReturnType<(typeof Links)['work']>;
