@@ -5,6 +5,12 @@ import PencilSimpleLineIcon from '../../icons/PencilSimpleLineIcon.astro';
 
 import type { IconProps } from '../../icons/type';
 
+interface Props {
+  class?: string | null;
+}
+
+const { class: className } = Astro.props;
+
 interface Contact {
   icon: (_props: IconProps) => any;
   name: string;
@@ -30,8 +36,14 @@ const contacts: Contact[] = [
 ];
 ---
 
-<section>
-  <svg width="6rem" height="6rem" viewBox="0 0 48 48" aria-hidden="true">
+<section class={className}>
+  <svg
+    width="6rem"
+    height="6rem"
+    viewBox="0 0 48 48"
+    aria-hidden="true"
+    class="mb-5"
+  >
     <path
       fill="#f4f4f4"
       d="M24 48c13.255 0 24-10.745 24-24S37.255 0 24 0 0 10.745 0 24s10.745 24 24 24Z"
@@ -42,16 +54,21 @@ const contacts: Contact[] = [
     ></path>
   </svg>
 
-  <h1>Han Yeong-woo</h1>
-  <p>
-    <span>프론트엔드 개발자</span>로, 항상 최신 트렌드를 따라가기 위해 노력하고
-    있습니다.
+  <h1 class="mb-3 text-[2rem]">Han Yeong-woo</h1>
+  <p class="mb-4 text-[1.25rem] text-secondary">
+    <span class="font-bold text-brand">프론트엔드 개발자</span>로, 항상 최신
+    트렌드를 따라가기 위해 노력하고 있습니다.
   </p>
-  <address>
+  <address class="flex gap-4">
     {
       contacts.map(({ icon: Icon, name, href }) => (
-        <a {href}>
-          <Icon width="1.625rem" height="1.625rem" aria-hidden="true" />
+        <a {href} class="flex items-center gap-2">
+          <Icon
+            width="1.625rem"
+            height="1.625rem"
+            aria-hidden="true"
+            class="text-icon-primary"
+          />
           {name}
         </a>
       ))
