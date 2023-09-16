@@ -78,6 +78,16 @@ const config = {
         DEFAULT: COLORS.zinc['500'],
       },
     },
+
+    spacing() {
+      const spacings: Record<number, string> = {
+        0: '0',
+      };
+      for (let i = 1; i <= 150; i += 1) {
+        spacings[i] = `${i / 4}rem`;
+      }
+      return spacings;
+    },
   },
 
   plugins: [
