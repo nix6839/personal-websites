@@ -1,9 +1,9 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
-import type { WorkLink, WorksLink } from '../core/links.js';
+import type { RootLink, WorkLink, WorksLink } from '../core/links.js';
 
 interface Props extends HTMLAttributes<'a'> {
-  href: '/' | WorksLink | WorkLink;
+  href: RootLink | WorksLink | WorkLink;
 }
 ---
 
