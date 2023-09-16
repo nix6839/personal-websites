@@ -38,6 +38,11 @@ const config = {
       mono: ['"JetBrains Mono"', ...defaultTheme.fontFamily.mono],
     },
 
+    fontWeight: {
+      regular: '400',
+      bold: '700',
+    },
+
     backgroundColor: {
       transparent: COLORS.transparent,
       primary: {
