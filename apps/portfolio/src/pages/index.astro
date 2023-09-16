@@ -1,5 +1,6 @@
 ---
 import About from '../components/pages/index/About.astro';
+import SelectedWorks from '../components/pages/index/SelectedWorks.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const title = '포트폴리오';
@@ -8,5 +9,6 @@ const title = '포트폴리오';
 <BaseLayout {title} pageName={'home'}>
   <main class="mt-20 px-6">
     <About class="mb-23" />
+    <SelectedWorks />
   </main>
 </BaseLayout>
