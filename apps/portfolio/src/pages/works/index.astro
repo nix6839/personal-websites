@@ -1,0 +1,18 @@
+---
+import { getCollection } from 'astro:content';
+import WorkCard from '../../components/WorkCard.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = '작업물 목록';
+
+const works = await getCollection('works');
+---
+
+<BaseLayout {title} pageName="works">
+  <main class="mb-40 mt-20 px-6">
+    <h1 class="mb-7 text-[2rem] font-bold text-primary">{title}</h1>
+    <div class="gap-18">
+      {works.map((work, i) => <WorkCard {work} shouldEagerLoadImage={i < 2} />)}
+    </div>
+  </main>
+</BaseLayout>
