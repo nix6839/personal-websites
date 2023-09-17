@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: 'pages'
+  group: pages-${{ github.event.workflow_run.head_branch }}
   cancel-in-progress: true
 
 permissions:
