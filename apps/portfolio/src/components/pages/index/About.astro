@@ -1,0 +1,79 @@
+---
+import EnvelopeSimpleIcon from '../../icons/EnvelopeSimpleIcon.astro';
+import GitHubIcon from '../../icons/GitHubIcon.astro';
+import PencilSimpleLineIcon from '../../icons/PencilSimpleLineIcon.astro';
+
+import type { IconProps } from '../../icons/types.js';
+
+interface Props {
+  class?: string | null;
+}
+
+const { class: className } = Astro.props;
+
+interface Contact {
+  icon: (_props: IconProps) => any;
+  name: string;
+  href: string;
+}
+
+const contacts: Contact[] = [
+  {
+    icon: GitHubIcon,
+    name: 'GitHub',
+    href: 'https://github.com/nix6839',
+  },
+  {
+    icon: EnvelopeSimpleIcon,
+    name: 'Email',
+    href: 'mailto:han@yeongwoo.dev',
+  },
+  {
+    icon: PencilSimpleLineIcon,
+    name: 'Blog',
+    href: 'https://blog.yeongwoo.dev',
+  },
+];
+---
+
+<section class={className}>
+  <header>
+    <svg
+      width="6rem"
+      height="6rem"
+      viewBox="0 0 48 48"
+      aria-hidden="true"
+      class="mb-5"
+    >
+      <path
+        fill="#f4f4f4"
+        d="M24 48c13.255 0 24-10.745 24-24S37.255 0 24 0 0 10.745 0 24s10.745 24 24 24Z"
+      ></path>
+      <path
+        fill="#b4ec94"
+        d="M21 9H6v15h15V9Zm-7.5 19.5v15h21v-15H27V36h-6v-7.5h-7.5ZM42 9H27v15h15V9Z"
+      ></path>
+    </svg>
+
+    <h1 class="mb-3 text-[2rem]">Han Yeong-woo</h1>
+    <p class="mb-4 text-[1.25rem] text-secondary">
+      <span class="font-bold text-brand">프론트엔드 개발자</span>로, 항상 최신
+      트렌드를 따라가기 위해 노력하고 있습니다.
+    </p>
+  </header>
+  <address class="flex gap-4">
+    {
+      contacts.map(({ icon: Icon, name, href }) => (
+        <a {href} class="flex items-center gap-2">
+          <Icon
+            width="1.625rem"
+            height="1.625rem"
+            aria-hidden="true"
+            class="text-icon-primary"
+          />
+          {name}
+        </a>
+      ))
+    }
+  </address>
+</section>
