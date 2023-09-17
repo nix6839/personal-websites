@@ -1,0 +1,73 @@
+---
+import { Image } from 'astro:assets';
+import { getEntries, getEntry } from 'astro:content';
+import Links from '../../../core/links.js';
+import InternalLink from '../../InternalLink.astro';
+import TechIcon from '../../icons/TechIcon.astro';
+
+import type { CollectionEntry } from 'astro:content';
+
+const selectedWorksSlugs: Array<CollectionEntry<'works'>['slug']> = [
+  'portfolio-website',
+];
+const selectedWorks = await Promise.all(
+  selectedWorksSlugs.map((slug) => getEntry('works', slug)),
+);
+---
+
+<section>
+  <header class="mb-7 flex items-center justify-between">
+    <h2 class="text-[1.75rem] font-bold text-primary">대표 작업물</h2>
+    <InternalLink
+      href="/works"
+      class="text-[1rem] text-primary hover:underline focus-visible:underline active:text-primary-pressed"
+    >
+      모두 보러 가기
+    </InternalLink>
+  </header>
+
+  <div class="flex flex-col gap-18">
+    {
+      selectedWorks.map(async (work, i) => {
+        const techs = await getEntries(work.data.techs);
+
+        return (
+          <article>
+            <InternalLink href={Links.work(work.slug)} class="block">
+              <Image
+                src={work.data.cover}
+                alt="썸네일"
+                {...(i < 2 ? { decoding: 'sync', loading: 'eager' } : {})}
+                aria-hidden="true"
+                class="mb-4 h-auto w-full"
+              />
+              <div class="px-1">
+                <h3 class="mb-2 text-[1.5rem] font-bold text-primary">
+                  {work.data.title}
+                </h3>
+                <p class="mb-3 text-[1.125rem] text-secondary">
+                  {work.data.description}
+                </p>
+                <ul class="flex flex-wrap gap-5">
+                  {techs.map((tech) => (
+                    <li class="flex gap-2">
+                      <TechIcon
+                        width={20}
+                        height={20}
+                        icon={tech.data.icon}
+                        aria-hidden="true"
+                      />
+                      <span class="text-[1rem] text-secondary">
+                        {tech.data.fullName}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </InternalLink>
+          </article>
+        );
+      })
+    }
+  </div>
+</section>
