@@ -1,5 +1,18 @@
 ---
+import { Image } from 'astro:assets';
+import { getEntries, getEntry } from 'astro:content';
+import Links from '../../../core/links.js';
 import InternalLink from '../../InternalLink.astro';
+import TechIcon from '../../icons/TechIcon.astro';
+
+import type { CollectionEntry } from 'astro:content';
+
+const selectedWorksSlugs: Array<CollectionEntry<'works'>['slug']> = [
+  'portfolio-website',
+];
+const selectedWorks = await Promise.all(
+  selectedWorksSlugs.map((slug) => getEntry('works', slug)),
+);
 ---
 
 <section>
@@ -9,27 +22,34 @@ import InternalLink from '../../InternalLink.astro';
   </header>
 
   <div>
-    <article>
-      <InternalLink href="/works/asdf">
-        <img src="" alt="썸네일" aria-hidden="true" />
-        <h3>포트폴리오 웹사이트</h3>
-        <p>나에 대해 소개하는 웹사이트</p>
-        <ul>
-          <li>React</li>
-          <li>TypeScript</li>
-        </ul>
-      </InternalLink>
-    </article>
-    <article>
-      <InternalLink href="/works/qwer">
-        <img src="" alt="썸네일" aria-hidden="true" />
-        <h3>쿠팡플레이 개선 확장</h3>
-        <p>쿠팡 플레이 웹사이트를 개선 시켜주는 브라우저 확장 프로그램.</p>
-        <ul>
-          <li>React</li>
-          <li>TypeScript</li>
-        </ul>
-      </InternalLink>
-    </article>
+    {
+      selectedWorks.map(async (work, i) => {
+        const techs = await getEntries(work.data.techs);
+
+        return (
+          <article>
+            <InternalLink href={Links.work(work.slug)}>
+              <Image
+                src={work.data.cover}
+                alt="썸네일"
+                {...(i < 2 ? { decoding: 'sync', loading: 'eager' } : {})}
+                aria-hidden="true"
+                class="h-auto w-full"
+              />
+              <h3>{work.data.title}</h3>
+              <p>{work.data.description}</p>
+              <ul>
+                {techs.map((tech) => (
+                  <li>
+                    <TechIcon width={20} height={20} icon={tech.data.icon} />
+                    {tech.data.fullName}
+                  </li>
+                ))}
+              </ul>
+            </InternalLink>
+          </article>
+        );
+      })
+    }
   </div>
 </section>

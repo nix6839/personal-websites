@@ -1,0 +1,11 @@
+---
+import type { IconProps } from './types.js';
+
+interface Props extends IconProps {
+  icon: string;
+}
+
+const { icon, ...restProps } = Astro.props;
+---
+
+<svg viewBox="0 0 128 128" set:html={icon} {...restProps} />
