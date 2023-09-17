@@ -51,7 +51,12 @@ const selectedWorks = await Promise.all(
                 <ul class="flex flex-wrap gap-5">
                   {techs.map((tech) => (
                     <li class="flex gap-2">
-                      <TechIcon width={20} height={20} icon={tech.data.icon} />
+                      <TechIcon
+                        width={20}
+                        height={20}
+                        icon={tech.data.icon}
+                        aria-hidden="true"
+                      />
                       <span class="text-[1rem] text-secondary">
                         {tech.data.fullName}
                       </span>
