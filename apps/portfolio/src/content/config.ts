@@ -1,4 +1,4 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection, reference, z } from 'astro:content';
 
 const worksCollection = defineCollection({
   type: 'content',
@@ -7,26 +7,19 @@ const worksCollection = defineCollection({
       cover: image(),
       title: z.string().nonempty(),
       description: z.string().nonempty(),
-      techs: z
-        .enum([
-          'javascript',
-          'typescript',
-          'react',
-          'astro',
-          'tailwind',
-
-          'prettier',
-          'eslint',
-          'github-actions',
-
-          'cloudflare-pages',
-          'chrome-web-store',
-        ])
-        .array()
-        .nonempty(),
+      techs: z.array(reference('techs')),
     }),
+});
+
+const techsCollection = defineCollection({
+  type: 'data',
+  schema: z.object({
+    fullName: z.string().nonempty(),
+    icon: z.string().nonempty(),
+  }),
 });
 
 export const collections = {
   works: worksCollection,
+  techs: techsCollection,
 };
