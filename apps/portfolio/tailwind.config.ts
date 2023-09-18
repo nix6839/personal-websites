@@ -48,6 +48,7 @@ const config = {
       primary: {
         DEFAULT: COLORS.zinc['900'],
       },
+      backdrop: 'rgb(0 0 0 / 0.4)',
     },
 
     textColor: {
