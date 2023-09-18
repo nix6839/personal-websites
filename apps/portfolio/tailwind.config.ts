@@ -14,6 +14,7 @@ const config = {
   content: ['./src/**/*.astro'],
   corePlugins: {
     preflight: false,
+    wordBreak: false,
   },
 
   theme: {
@@ -105,6 +106,23 @@ const config = {
       addUtilities({
         '.scheme-dark': {
           colorScheme: 'dark',
+        },
+
+        '.break-normal': {
+          wordBreak: 'normal',
+          overflowWrap: 'normal',
+        },
+        '.break-all': {
+          wordBreak: 'break-all',
+        },
+        '.break-keep': {
+          wordBreak: 'keep-all',
+        },
+        '.break-overflow-word': {
+          overflowWrap: 'break-word',
+        },
+        '.break-overflow-anywhere': {
+          overflowWrap: 'anywhere',
         },
       });
     }),
