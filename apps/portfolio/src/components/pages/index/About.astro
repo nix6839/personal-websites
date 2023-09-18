@@ -61,7 +61,7 @@ const contacts: Contact[] = [
       트렌드를 따라가기 위해 노력하고 있습니다.
     </p>
   </header>
-  <address class="flex gap-4">
+  <address class="flex flex-wrap gap-4">
     {
       contacts.map(({ icon: Icon, name, href }) => (
         <a {href} class="flex items-center gap-2">
