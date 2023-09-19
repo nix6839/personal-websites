@@ -1,8 +1,8 @@
 ---
 import Links from '../core/links.js';
-import { listIconPath } from '../icon-path.js';
 import Button from './Button.astro';
 import InternalLink from './InternalLink.astro';
+import { listIconPath } from './svgs/icons/icon-path.js';
 
 export type { Props as HeaderProps };
 
@@ -69,7 +69,7 @@ const NAV_ID = 'nav-menu';
 </header>
 
 <script>
-  import { listIconPath, xIconPath } from '../icon-path.js';
+  import { listIconPath, xIconPath } from './svgs/icons/icon-path.js';
 
   const OPEN_NAV_BUTTON_ID = 'open-nav-button';
 
