@@ -72,6 +72,9 @@ const config = {
         primary: {
           DEFAULT: COLORS.zinc['200'],
         },
+        brand: {
+          DEFAULT: COLORS.brand,
+        },
       },
     },
 
