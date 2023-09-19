@@ -3,6 +3,7 @@ import Links from '../core/links.js';
 import Button from './Button.astro';
 import InternalLink from './InternalLink.astro';
 import { listIconPath } from './svgs/icons/icon-path.js';
+import NotReadyDialogButton from './NotReadyDialogButton.astro';
 
 export type { Props as HeaderProps };
 
@@ -56,12 +57,19 @@ const NAV_ID = 'nav-menu';
     >
       작업물
     </InternalLink>
-    <a
+    {/* TODO: Uncomment */}
+    {
+      /* <a
       href="https://blog.yeongwoo.dev/"
       class="block p-6 text-[1.5rem] font-bold text-secondary"
+    > */
+    }
+    <NotReadyDialogButton
+      class="w-full p-6 text-[1.5rem] font-bold text-secondary"
     >
       블로그
-    </a>
+    </NotReadyDialogButton>
+    {/* </a> */}
   </nav>
 </header>
 

@@ -1,8 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import { getEntries } from 'astro:content';
-import Links from '../core/links.js';
-import InternalLink from './InternalLink.astro';
+import NotReadyDialogButton from './NotReadyDialogButton.astro';
 import TechIcon from './svgs/icons/TechIcon.astro';
 
 import type { CollectionEntry } from 'astro:content';
@@ -22,7 +21,9 @@ const techs = await getEntries(work.data.techs);
 ---
 
 <article class={className}>
-  <InternalLink href={Links.work(work.slug)} class="block">
+  <NotReadyDialogButton>
+    {/* TODO: Uncomment */}
+    {/* <InternalLink href={Links.work(work.slug)} class="block"> */}
     <Image
       src={work.data.cover}
       alt="썸네일"
@@ -55,5 +56,6 @@ const techs = await getEntries(work.data.techs);
         }
       </ul>
     </div>
-  </InternalLink>
+    {/* </InternalLink> */}
+  </NotReadyDialogButton>
 </article>

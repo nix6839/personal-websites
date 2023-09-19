@@ -14,6 +14,7 @@ const config = {
   content: ['./src/**/*.astro'],
   corePlugins: {
     preflight: false,
+    wordBreak: false,
   },
 
   theme: {
@@ -48,6 +49,7 @@ const config = {
       primary: {
         DEFAULT: COLORS.zinc['900'],
       },
+      backdrop: 'rgb(0 0 0 / 0.4)',
     },
 
     textColor: {
@@ -69,6 +71,9 @@ const config = {
       icon: {
         primary: {
           DEFAULT: COLORS.zinc['200'],
+        },
+        brand: {
+          DEFAULT: COLORS.brand,
         },
       },
     },
@@ -104,6 +109,23 @@ const config = {
       addUtilities({
         '.scheme-dark': {
           colorScheme: 'dark',
+        },
+
+        '.break-normal': {
+          wordBreak: 'normal',
+          overflowWrap: 'normal',
+        },
+        '.break-all': {
+          wordBreak: 'break-all',
+        },
+        '.break-keep': {
+          wordBreak: 'keep-all',
+        },
+        '.break-overflow-word': {
+          overflowWrap: 'break-word',
+        },
+        '.break-overflow-anywhere': {
+          overflowWrap: 'anywhere',
         },
       });
     }),
