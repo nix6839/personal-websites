@@ -44,32 +44,24 @@ const NAV_ID = 'nav-menu';
     class="overflow-y-hidden transition-[height] duration-500"
     style={{ height: 0 }}
   >
-    <ul>
-      <li>
-        <InternalLink
-          href={Links.root}
-          class="block p-6 text-[1.5rem] font-bold text-secondary"
-        >
-          홈
-        </InternalLink>
-      </li>
-      <li>
-        <InternalLink
-          href={Links.works}
-          class="block p-6 text-[1.5rem] font-bold text-secondary"
-        >
-          작업물
-        </InternalLink>
-      </li>
-      <li>
-        <a
-          href="https://blog.yeongwoo.dev/"
-          class="block p-6 text-[1.5rem] font-bold text-secondary"
-        >
-          블로그
-        </a>
-      </li>
-    </ul>
+    <InternalLink
+      href={Links.root}
+      class="block p-6 text-[1.5rem] font-bold text-secondary"
+    >
+      홈
+    </InternalLink>
+    <InternalLink
+      href={Links.works}
+      class="block p-6 text-[1.5rem] font-bold text-secondary"
+    >
+      작업물
+    </InternalLink>
+    <a
+      href="https://blog.yeongwoo.dev/"
+      class="block p-6 text-[1.5rem] font-bold text-secondary"
+    >
+      블로그
+    </a>
   </nav>
 </header>
 
