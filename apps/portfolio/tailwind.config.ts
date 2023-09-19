@@ -96,7 +96,7 @@ const config = {
   },
 
   plugins: [
-    plugin(({ addBase, addUtilities, theme }) => {
+    plugin(({ addBase, addUtilities, addVariant, theme }) => {
       // From https://tailwindcss.com/docs/preflight#border-styles-are-reset-globally
       addBase({
         '*, ::before, ::after': {
@@ -128,6 +128,8 @@ const config = {
           overflowWrap: 'anywhere',
         },
       });
+
+      addVariant('starting', '@starting-style');
     }),
   ],
 } satisfies Config;
