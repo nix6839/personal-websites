@@ -96,7 +96,7 @@ const config = {
   },
 
   plugins: [
-    plugin(({ addBase, addUtilities, theme }) => {
+    plugin(({ addBase, addUtilities, addVariant, theme }) => {
       // From https://tailwindcss.com/docs/preflight#border-styles-are-reset-globally
       addBase({
         '*, ::before, ::after': {
@@ -128,6 +128,18 @@ const config = {
           overflowWrap: 'anywhere',
         },
       });
+
+      addUtilities({
+        '.transition-dialog': {
+          transition: [
+            'transform 0.4s ease-in-out',
+            'overlay 0.4s ease-in-out allow-discrete',
+            'display 0.4s ease-in-out allow-discrete',
+          ].join(','),
+        },
+      });
+
+      addVariant('starting', '@starting-style');
     }),
   ],
 } satisfies Config;
