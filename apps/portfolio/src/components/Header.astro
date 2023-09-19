@@ -13,7 +13,7 @@ interface Props {
 
 const { pageName } = Astro.props;
 
-const OPEN_NAV_BUTTON_ID = 'open-nav-button';
+const NAV_TOGGLE_BUTTON_ID = 'open-nav-button';
 const NAV_ID = 'nav-menu';
 ---
 
@@ -24,7 +24,7 @@ const NAV_ID = 'nav-menu';
       <span class="text-brand">{pageName}</span>
     </span>
     <Button
-      id={OPEN_NAV_BUTTON_ID}
+      id={NAV_TOGGLE_BUTTON_ID}
       aria-label="탐색 메뉴 열기"
       aria-expanded="false"
       aria-controls="nav-menu"
@@ -34,6 +34,7 @@ const NAV_ID = 'nav-menu';
         width="1em"
         height="1em"
         viewBox="0 0 48 48"
+        aria-hidden="true"
         class="text-icon-primary"
       >
         <path fill="currentColor" d={listIconPath}></path>
@@ -77,43 +78,47 @@ const NAV_ID = 'nav-menu';
 <script>
   import { listIconPath, xIconPath } from './svgs/icons/icon-path.js';
 
-  const OPEN_NAV_BUTTON_ID = 'open-nav-button';
+  const NAV_TOGGLE_BUTTON_ID = 'open-nav-button';
 
-  const openNavButtonEl = document.getElementById(OPEN_NAV_BUTTON_ID);
-  if (!(openNavButtonEl instanceof HTMLButtonElement)) {
-    throw new Error(`Can not find "${OPEN_NAV_BUTTON_ID}" element`);
+  const navToggleButtonEl = document.getElementById(NAV_TOGGLE_BUTTON_ID);
+  if (!(navToggleButtonEl instanceof HTMLButtonElement)) {
+    throw new Error(`Can not find "${NAV_TOGGLE_BUTTON_ID}" element`);
   }
-  const buttonIconPathEl = openNavButtonEl.getElementsByTagName('path').item(0);
+  const buttonIconPathEl = navToggleButtonEl
+    .getElementsByTagName('path')
+    .item(0);
   if (!(buttonIconPathEl instanceof SVGPathElement)) {
     throw new Error(
-      `Can not find <path> child of "${OPEN_NAV_BUTTON_ID}" element`,
+      `Can not find <path> child of "${NAV_TOGGLE_BUTTON_ID}" element`,
     );
   }
 
-  const controlledId = openNavButtonEl.getAttribute('aria-controls');
+  const controlledId = navToggleButtonEl.getAttribute('aria-controls');
   if (controlledId === null) {
     throw new Error(
-      `There is no controlled element by "${OPEN_NAV_BUTTON_ID}"`,
+      `There is no controlled element by "${NAV_TOGGLE_BUTTON_ID}"`,
     );
   }
   const navEl = document.getElementById(controlledId);
   if (!(navEl instanceof HTMLElement)) {
     throw new Error(
-      `Can not find "${controlledId}" element that controlled by "${OPEN_NAV_BUTTON_ID}"`,
+      `Can not find "${controlledId}" element that controlled by "${NAV_TOGGLE_BUTTON_ID}"`,
     );
   }
 
-  openNavButtonEl.addEventListener('click', function () {
+  navToggleButtonEl.addEventListener('click', function () {
     const isAriaExpanded = this.ariaExpanded === 'true' ? true : false;
 
     if (isAriaExpanded) {
+      this.ariaExpanded = 'false';
+      navToggleButtonEl.ariaLabel = '탐색 메뉴 열기';
       navEl.style.height = '0';
       buttonIconPathEl.setAttribute('d', listIconPath);
-      this.ariaExpanded = 'false';
     } else {
+      this.ariaExpanded = 'true';
+      navToggleButtonEl.ariaLabel = '탐색 메뉴 닫기';
       navEl.style.height = `${navEl.scrollHeight}px`;
       buttonIconPathEl.setAttribute('d', xIconPath);
-      this.ariaExpanded = 'true';
     }
   });
 </script>
