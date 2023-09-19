@@ -23,7 +23,11 @@ const { class: className } = Astro.props;
   </button>
 
   <dialog
-    class="mx-auto mb-auto mt-16 max-h-none max-w-none bg-transparent backdrop:bg-backdrop"
+    class:list={[
+      'mx-auto mb-auto mt-16 max-h-none max-w-none bg-transparent backdrop:bg-backdrop',
+      'starting:open:translate-y-[-31.5rem] open:translate-y-0 translate-y-[-31.5rem]',
+      'transition-dialog',
+    ]}
   >
     <div class="relative rounded-lg bg-primary p-12">
       <Button
