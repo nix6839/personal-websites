@@ -39,11 +39,11 @@ const contacts: Contact[] = [
 <section class={className}>
   <header>
     <svg
-      width="6rem"
-      height="6rem"
+      width="96"
+      height="96"
       viewBox="0 0 48 48"
       aria-hidden="true"
-      class="mb-5"
+      class="mb-5 h-24 w-24"
     >
       <path
         fill="#f4f4f4"
@@ -66,10 +66,10 @@ const contacts: Contact[] = [
       contacts.map(({ icon: Icon, name, href }) => (
         <a {href} class="flex items-center gap-2 text-secondary">
           <Icon
-            width="1.625rem"
-            height="1.625rem"
+            width="26"
+            height="26"
             aria-hidden="true"
-            class="text-icon-primary"
+            class="h-[1.625rem] w-[1.625rem] text-icon-primary"
           />
           {name}
         </a>
