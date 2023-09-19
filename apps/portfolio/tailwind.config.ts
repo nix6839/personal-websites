@@ -7,6 +7,7 @@ import type { Config } from 'tailwindcss';
 const COLORS = {
   transparent: tailwindColors.transparent,
   zinc: tailwindColors.zinc,
+  slate: tailwindColors.slate,
   brand: '#b4ec94',
 } as const;
 
@@ -48,6 +49,10 @@ const config = {
       transparent: COLORS.transparent,
       primary: {
         DEFAULT: COLORS.zinc['900'],
+      },
+      button: {
+        hover: `${COLORS.slate['300']}14`,
+        pressed: `${COLORS.slate['300']}1f`,
       },
       backdrop: 'rgb(0 0 0 / 0.4)',
     },

@@ -18,7 +18,7 @@ const NAV_ID = 'nav-menu';
 ---
 
 <header class="sticky top-0 border-b bg-primary">
-  <div data-expanded="true" class="flex items-center justify-between p-5">
+  <div data-expanded="true" class="flex items-center justify-between px-5 py-4">
     <span aria-hidden="true" class="font-mono text-[1.5rem]">
       <span class="text-primary">yeong-woo.</span>
       <span class="text-brand">{pageName}</span>
@@ -28,10 +28,11 @@ const NAV_ID = 'nav-menu';
       aria-label="탐색 메뉴 열기"
       aria-expanded="false"
       aria-controls="nav-menu"
+      class="rounded-md p-2 text-[1.875rem] hover:bg-button-hover focus-visible:bg-button-hover active:bg-button-pressed"
     >
       <svg
-        width="2rem"
-        height="2rem"
+        width="1em"
+        height="1em"
         viewBox="0 0 48 48"
         class="text-icon-primary"
       >

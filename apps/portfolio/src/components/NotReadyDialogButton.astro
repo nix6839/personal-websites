@@ -33,9 +33,12 @@ const { class: className } = Astro.props;
       <Button
         data-close-button
         aria-label="모달 닫기"
-        class="absolute right-3 top-3"
+        class:list={[
+          'rounded-md p-2 text-[1.875rem] hover:bg-button-hover focus-visible:bg-button-hover active:bg-button-pressed',
+          'absolute right-3 top-3',
+        ]}
       >
-        <XIcon width="2rem" height="2rem" aria-hidden="true" />
+        <XIcon width="1em" height="1em" aria-hidden="true" />
       </Button>
       <div class="flex flex-col items-center gap-8">
         <ProcessBuilding
