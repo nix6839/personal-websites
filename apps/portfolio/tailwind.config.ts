@@ -129,6 +129,16 @@ const config = {
         },
       });
 
+      addUtilities({
+        '.transition-dialog': {
+          transition: [
+            'transform 0.4s ease-in-out',
+            'overlay 0.4s ease-in-out allow-discrete',
+            'display 0.4s ease-in-out allow-discrete',
+          ].join(','),
+        },
+      });
+
       addVariant('starting', '@starting-style');
     }),
   ],
