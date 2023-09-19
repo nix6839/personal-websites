@@ -55,7 +55,7 @@ const contacts: Contact[] = [
       ></path>
     </svg>
 
-    <h1 class="mb-3 text-[2rem]">Han Yeong-woo</h1>
+    <h1 class="mb-3 text-[2rem] text-primary">Han Yeong-woo</h1>
     <p class="mb-4 text-[1.25rem] text-secondary">
       <span class="font-bold text-brand">프론트엔드 개발자</span>로, 항상 최신
       트렌드를 따라가기 위해 노력하고 있습니다.
@@ -64,7 +64,7 @@ const contacts: Contact[] = [
   <address class="flex flex-wrap gap-4">
     {
       contacts.map(({ icon: Icon, name, href }) => (
-        <a {href} class="flex items-center gap-2">
+        <a {href} class="flex items-center gap-2 text-secondary">
           <Icon
             width="1.625rem"
             height="1.625rem"
