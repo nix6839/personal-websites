@@ -13,18 +13,18 @@
   },
   "devDependencies": {
     "@nix6839/prettier-config": "1.0.8",
-    "@types/eslint": "8.44.2",
+    "@types/eslint": "8.44.4",
     "@types/prettier": "2.7.3",
-    "@typescript-eslint/eslint-plugin": "6.7.0",
-    "@typescript-eslint/parser": "6.7.0",
-    "eslint": "8.49.0",
+    "@typescript-eslint/eslint-plugin": "6.7.5",
+    "@typescript-eslint/parser": "6.7.5",
+    "eslint": "8.51.0",
     "eslint-config-prettier": "9.0.0",
-    "eslint-plugin-astro": "0.29.0",
-    "nx": "16.8.1",
-    "nx-cloud": "16.4.0",
+    "eslint-plugin-astro": "0.29.1",
+    "nx": "16.10.0",
+    "nx-cloud": "16.5.2",
     "prettier": "2.8.8",
     "prettier-plugin-astro": "0.10.0",
     "prettier-plugin-tailwindcss": "0.4.1"
   },
-  "packageManager": "pnpm@8.7.5+sha256.c69c54d81c58e23ee23324729e68d012fe3ef3b7e62e2dc521b1141c2a36567e"
+  "packageManager": "pnpm@8.9.0+sha256.8f5264ad1d100da11a6add6bb8a94c6f1e913f9e9261b2a551fabefad2ec0fec"
 }

@@ -45,12 +45,12 @@ jobs:
           fetch-depth: 0
 
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
-        uses: nrwl/nx-set-shas@v3
+        uses: nrwl/nx-set-shas@v4
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 8.7.5
+          version: 8.9.0
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
