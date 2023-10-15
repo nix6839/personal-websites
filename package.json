@@ -12,9 +12,8 @@
     "format:check": "prettier \"**/*.{astro,ts,cjs,css,json,md,yml,yaml}\" --check"
   },
   "devDependencies": {
-    "@nix6839/prettier-config": "1.0.8",
+    "@nix6839/prettier-config": "2.0.2",
     "@types/eslint": "8.44.4",
-    "@types/prettier": "2.7.3",
     "@typescript-eslint/eslint-plugin": "6.7.5",
     "@typescript-eslint/parser": "6.7.5",
     "eslint": "8.51.0",
@@ -22,9 +21,9 @@
     "eslint-plugin-astro": "0.29.1",
     "nx": "16.10.0",
     "nx-cloud": "16.5.2",
-    "prettier": "2.8.8",
-    "prettier-plugin-astro": "0.10.0",
-    "prettier-plugin-tailwindcss": "0.4.1"
+    "prettier": "3.0.3",
+    "prettier-plugin-astro": "0.12.0",
+    "prettier-plugin-tailwindcss": "0.5.6"
   },
   "packageManager": "pnpm@8.9.0+sha256.8f5264ad1d100da11a6add6bb8a94c6f1e913f9e9261b2a551fabefad2ec0fec"
 }

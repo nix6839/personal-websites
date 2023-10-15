@@ -1,4 +1,4 @@
-const baseConfig = require('../../prettier.config.cjs');
+import baseConfig from '../../prettier.config.js';
 
 /** @satisfies {import('prettier').Config} */
 const config = {
@@ -7,4 +7,4 @@ const config = {
   tailwindConfig: './tailwind.config.ts',
 };
 
-module.exports = config;
+export default config;
