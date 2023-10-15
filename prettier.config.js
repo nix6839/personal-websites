@@ -1,9 +1,11 @@
-const tailwind = require('prettier-plugin-tailwindcss');
-const astro = require('prettier-plugin-astro');
+import hwyConfig from '@nix6839/prettier-config';
+
+const tailwind = 'prettier-plugin-tailwindcss'
+const astro = 'prettier-plugin-astro'
 
 /** @satisfies {import('prettier').Config} */
 const config = {
-  ...require('@nix6839/prettier-config'),
+  ...hwyConfig,
 
   plugins: [tailwind],
 
@@ -19,4 +21,4 @@ const config = {
   ],
 };
 
-module.exports = config;
+export default config;
