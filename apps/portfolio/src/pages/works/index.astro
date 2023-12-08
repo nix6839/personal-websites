@@ -9,10 +9,10 @@ const works = await getCollection('works');
 ---
 
 <BaseLayout {title} pageName="works">
-  <main class="mx-auto mb-40 mt-20 max-w-[42rem] px-6">
-    <h1 class="mb-7 text-[2rem] font-bold text-primary">{title}</h1>
-    <div class="gap-18">
-      {works.map((work, i) => <WorkCard {work} shouldEagerLoadImage={i < 2} />)}
-    </div>
-  </main>
+	<main class="mx-auto mb-40 mt-20 max-w-[42rem] px-6">
+		<h1 class="mb-7 text-[2rem] font-bold text-primary">{title}</h1>
+		<div class="gap-18">
+			{works.map((work, i) => <WorkCard {work} shouldEagerLoadImage={i < 2} />)}
+		</div>
+	</main>
 </BaseLayout>

@@ -1,12 +1,12 @@
 {
-  "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
-  "words": [
-    "astro",
-    "astrojs",
-    "cacheable",
-    "csstree",
-    "pretendard",
-    "tailwindcss",
-    "tsconfigs"
-  ]
+	"$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+	"words": [
+		"astro",
+		"astrojs",
+		"cacheable",
+		"csstree",
+		"pretendard",
+		"tailwindcss",
+		"tsconfigs"
+	]
 }

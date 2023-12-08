@@ -4,94 +4,94 @@ import ProcessBuilding from './svgs/ProcessBuilding.astro';
 import XIcon from './svgs/icons/XIcon.astro';
 
 interface Props {
-  class?: string;
+	class?: string;
 }
 
 const { class: className } = Astro.props;
 ---
 
 <not-ready-dialog-button>
-  <button
-    type="button"
-    data-open-button
-    class:list={[
-      'block cursor-pointer border-0 bg-transparent text-start leading-[inherit]',
-      className,
-    ]}
-  >
-    <slot />
-  </button>
+	<button
+		type="button"
+		data-open-button
+		class:list={[
+			'block cursor-pointer border-0 bg-transparent text-start leading-[inherit]',
+			className,
+		]}
+	>
+		<slot />
+	</button>
 
-  <dialog
-    class:list={[
-      'mx-auto mb-auto mt-16 max-h-none max-w-none bg-transparent backdrop:bg-backdrop',
-      'translate-y-[-31.5rem] open:translate-y-0 starting:open:translate-y-[-31.5rem]',
-      'transition-dialog',
-    ]}
-  >
-    <div class="relative rounded-lg bg-primary p-12">
-      <Button
-        data-close-button
-        aria-label="모달 닫기"
-        class:list={[
-          'rounded-md p-2 text-[1.875rem] hover:bg-button-hover focus-visible:bg-button-hover active:bg-button-pressed',
-          'absolute right-3 top-3',
-        ]}
-      >
-        <XIcon width="1em" height="1em" aria-hidden="true" />
-      </Button>
-      <div class="flex flex-col items-center gap-8">
-        <ProcessBuilding
-          width="197"
-          height="179"
-          aria-hidden="true"
-          class="h-auto w-full max-w-[12.3125rem] text-icon-brand"
-        />
+	<dialog
+		class:list={[
+			'mx-auto mb-auto mt-16 max-h-none max-w-none bg-transparent backdrop:bg-backdrop',
+			'translate-y-[-31.5rem] open:translate-y-0 starting:open:translate-y-[-31.5rem]',
+			'transition-dialog',
+		]}
+	>
+		<div class="relative rounded-lg bg-primary p-12">
+			<Button
+				data-close-button
+				aria-label="모달 닫기"
+				class:list={[
+					'rounded-md p-2 text-[1.875rem] hover:bg-button-hover focus-visible:bg-button-hover active:bg-button-pressed',
+					'absolute right-3 top-3',
+				]}
+			>
+				<XIcon width="1em" height="1em" aria-hidden="true" />
+			</Button>
+			<div class="flex flex-col items-center gap-8">
+				<ProcessBuilding
+					width="197"
+					height="179"
+					aria-hidden="true"
+					class="h-auto w-full max-w-[12.3125rem] text-icon-brand"
+				/>
 
-        <p
-          class="text-center text-[1.5rem] font-bold text-primary break-keep break-overflow-anywhere"
-        >
-          아직 준비되지 않은 콘텐츠입니다!
-        </p>
-      </div>
-    </div>
-  </dialog>
+				<p
+					class="text-center text-[1.5rem] font-bold text-primary break-keep break-overflow-anywhere"
+				>
+					아직 준비되지 않은 콘텐츠입니다!
+				</p>
+			</div>
+		</div>
+	</dialog>
 </not-ready-dialog-button>
 
 <script>
-  class NotReadyDialogButton extends HTMLElement {
-    constructor() {
-      super();
+	class NotReadyDialogButton extends HTMLElement {
+		constructor() {
+			super();
 
-      const SELF_NAME = 'NotReadyDialogButton';
+			const SELF_NAME = 'NotReadyDialogButton';
 
-      const dialogEl = this.querySelector('dialog');
-      if (!(dialogEl instanceof HTMLDialogElement)) {
-        throw new Error(`Can not find dialogEl in ${SELF_NAME}`);
-      }
-      dialogEl.addEventListener('click', (e) => {
-        if (e.target === e.currentTarget) {
-          dialogEl.close();
-        }
-      });
+			const dialogEl = this.querySelector('dialog');
+			if (!(dialogEl instanceof HTMLDialogElement)) {
+				throw new Error(`Can not find dialogEl in ${SELF_NAME}`);
+			}
+			dialogEl.addEventListener('click', (e) => {
+				if (e.target === e.currentTarget) {
+					dialogEl.close();
+				}
+			});
 
-      const openButtonEl = this.querySelector('button[data-open-button]');
-      if (!(openButtonEl instanceof HTMLButtonElement)) {
-        throw new Error(`Can not find openButtonEl in ${SELF_NAME}`);
-      }
-      openButtonEl.addEventListener('click', () => {
-        dialogEl.showModal();
-      });
+			const openButtonEl = this.querySelector('button[data-open-button]');
+			if (!(openButtonEl instanceof HTMLButtonElement)) {
+				throw new Error(`Can not find openButtonEl in ${SELF_NAME}`);
+			}
+			openButtonEl.addEventListener('click', () => {
+				dialogEl.showModal();
+			});
 
-      const closeButtonEl = this.querySelector('button[data-close-button]');
-      if (!(closeButtonEl instanceof HTMLButtonElement)) {
-        throw new Error(`Can not find closeButtonEl in ${SELF_NAME}`);
-      }
-      closeButtonEl.addEventListener('click', () => {
-        dialogEl.close();
-      });
-    }
-  }
+			const closeButtonEl = this.querySelector('button[data-close-button]');
+			if (!(closeButtonEl instanceof HTMLButtonElement)) {
+				throw new Error(`Can not find closeButtonEl in ${SELF_NAME}`);
+			}
+			closeButtonEl.addEventListener('click', () => {
+				dialogEl.close();
+			});
+		}
+	}
 
-  customElements.define('not-ready-dialog-button', NotReadyDialogButton);
+	customElements.define('not-ready-dialog-button', NotReadyDialogButton);
 </script>
