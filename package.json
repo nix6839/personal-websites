@@ -8,8 +8,8 @@
     "build": "nx run-many --target=build",
     "lint": "nx run-many --target=lint",
     "type:check": "nx run-many --target=type:check",
-    "format": "prettier \"**/*.{astro,ts,cjs,css,json,md,yml,yaml}\" --write",
-    "format:check": "prettier \"**/*.{astro,ts,cjs,css,json,md,yml,yaml}\" --check"
+    "format": "prettier \"**/*.{astro,ts,js,cjs,css,json,md,yml,yaml}\" --write",
+    "format:check": "prettier \"**/*.{astro,ts,js,cjs,css,json,md,yml,yaml}\" --check"
   },
   "devDependencies": {
     "@nix6839/prettier-config": "2.1.0",
