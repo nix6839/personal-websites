@@ -12,14 +12,14 @@
   },
   "dependencies": {
     "@nix6839/prettier-config": "2.0.2",
-    "axios": "1.6.0",
+    "axios": "1.6.2",
     "css-tree": "2.3.1",
     "csstree-validator": "3.0.0",
-    "prettier": "3.0.3"
+    "prettier": "3.1.0"
   },
   "devDependencies": {
-    "@types/css-tree": "2.3.3",
-    "@types/node": "18.18.8",
-    "typescript": "5.2.2"
+    "@types/css-tree": "2.3.4",
+    "@types/node": "18.19.3",
+    "typescript": "5.3.3"
   }
 }
