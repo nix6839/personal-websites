@@ -12,7 +12,7 @@
     "format:check": "prettier \"**/*.{astro,ts,cjs,css,json,md,yml,yaml}\" --check"
   },
   "devDependencies": {
-    "@nix6839/prettier-config": "2.0.2",
+    "@nix6839/prettier-config": "2.1.0",
     "@types/eslint": "8.44.8",
     "@typescript-eslint/eslint-plugin": "6.13.2",
     "@typescript-eslint/parser": "6.13.2",
