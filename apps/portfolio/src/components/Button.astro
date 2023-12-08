@@ -2,22 +2,22 @@
 import type { HTMLAttributes } from 'astro/types';
 
 interface Props extends HTMLAttributes<'button'> {
-  /**
-   * @default 'button'
-   */
-  type?: NonNullable<HTMLAttributes<'button'>['type']>;
+	/**
+	 * @default 'button'
+	 */
+	type?: NonNullable<HTMLAttributes<'button'>['type']>;
 }
 
 const { type = 'button', class: className, ...restProps } = Astro.props;
 ---
 
 <button
-  {type}
-  class:list={[
-    'inline-flex cursor-pointer items-center justify-center border-0 bg-transparent',
-    className,
-  ]}
-  {...restProps}
+	{type}
+	class:list={[
+		'inline-flex cursor-pointer items-center justify-center border-0 bg-transparent',
+		className,
+	]}
+	{...restProps}
 >
-  <slot />
+	<slot />
 </button>

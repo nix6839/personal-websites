@@ -1,26 +1,26 @@
 {
-  "name": "portfolio",
-  "version": "0.0.1",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "lint": "eslint \"**/*.{astro,ts}\"",
-    "type:check": "astro check && tsc",
-    "fetch-fonts": "fetch-pretendard --font-output-dir ./public/fonts --css-output-path ./src/styles/pretendardvariable-dynamic-subset.css --css-url 'https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/variable/pretendardvariable-dynamic-subset.css'"
-  },
-  "dependencies": {
-    "@astrojs/tailwind": "5.0.3",
-    "astro": "4.0.3",
-    "tailwindcss": "3.3.6"
-  },
-  "devDependencies": {
-    "@astrojs/check": "0.3.1",
-    "fetch-pretendard": "workspace:^",
-    "sharp": "0.33.0",
-    "typescript": "5.3.3"
-  }
+	"name": "portfolio",
+	"version": "0.0.1",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"lint": "eslint \"**/*.{astro,ts}\"",
+		"type:check": "astro check && tsc",
+		"fetch-fonts": "fetch-pretendard --font-output-dir ./public/fonts --css-output-path ./src/styles/pretendardvariable-dynamic-subset.css --css-url 'https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/variable/pretendardvariable-dynamic-subset.css'"
+	},
+	"dependencies": {
+		"@astrojs/tailwind": "5.0.3",
+		"astro": "4.0.3",
+		"tailwindcss": "3.3.6"
+	},
+	"devDependencies": {
+		"@astrojs/check": "0.3.1",
+		"fetch-pretendard": "workspace:^",
+		"sharp": "0.33.0",
+		"typescript": "5.3.3"
+	}
 }

@@ -1,16 +1,16 @@
 {
-  "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "extends": "nx/presets/npm.json",
-  "nxCloudAccessToken": "YWFlOGY4MDUtMTIzZC00NjFiLThmOGYtNTQxNDUwOGU3NDVifHJlYWQ=",
-  "targetDefaults": {
-    "build": {
-      "cache": true
-    },
-    "lint": {
-      "cache": true
-    },
-    "type:check": {
-      "cache": true
-    }
-  }
+	"$schema": "./node_modules/nx/schemas/nx-schema.json",
+	"extends": "nx/presets/npm.json",
+	"nxCloudAccessToken": "YWFlOGY4MDUtMTIzZC00NjFiLThmOGYtNTQxNDUwOGU3NDVifHJlYWQ=",
+	"targetDefaults": {
+		"build": {
+			"cache": true
+		},
+		"lint": {
+			"cache": true
+		},
+		"type:check": {
+			"cache": true
+		}
+	}
 }

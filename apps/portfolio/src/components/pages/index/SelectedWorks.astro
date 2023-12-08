@@ -6,29 +6,29 @@ import WorkCard from '../../WorkCard.astro';
 import type { CollectionEntry } from 'astro:content';
 
 const selectedWorksSlugs: Array<CollectionEntry<'works'>['slug']> = [
-  'portfolio-website',
+	'portfolio-website',
 ];
 const selectedWorks = await Promise.all(
-  selectedWorksSlugs.map((slug) => getEntry('works', slug)),
+	selectedWorksSlugs.map((slug) => getEntry('works', slug)),
 );
 ---
 
 <section>
-  <header class="mb-7 flex items-center justify-between">
-    <h2 class="text-[1.75rem] font-bold text-primary">대표 작업물</h2>
-    <InternalLink
-      href="/works"
-      class="text-[1rem] text-primary hover:underline focus-visible:underline active:text-primary-pressed"
-    >
-      모두 보러 가기
-    </InternalLink>
-  </header>
+	<header class="mb-7 flex items-center justify-between">
+		<h2 class="text-[1.75rem] font-bold text-primary">대표 작업물</h2>
+		<InternalLink
+			href="/works"
+			class="text-[1rem] text-primary hover:underline focus-visible:underline active:text-primary-pressed"
+		>
+			모두 보러 가기
+		</InternalLink>
+	</header>
 
-  <div class="flex flex-col gap-18">
-    {
-      selectedWorks.map((work, i) => (
-        <WorkCard {work} shouldEagerLoadImage={i < 2} />
-      ))
-    }
-  </div>
+	<div class="flex flex-col gap-18">
+		{
+			selectedWorks.map((work, i) => (
+				<WorkCard {work} shouldEagerLoadImage={i < 2} />
+			))
+		}
+	</div>
 </section>

@@ -1,25 +1,25 @@
 {
-  "name": "fetch-pretendard",
-  "version": "0.0.1",
-  "private": true,
-  "type": "module",
-  "bin": "./dist/main.js",
-  "scripts": {
-    "build": "tsc",
-    "start": "node ./dist/main.js",
-    "lint": "eslint \"**/*.ts\"",
-    "type:check": "tsc --noEmit"
-  },
-  "dependencies": {
-    "@nix6839/prettier-config": "2.1.0",
-    "axios": "1.6.2",
-    "css-tree": "2.3.1",
-    "csstree-validator": "3.0.0",
-    "prettier": "3.1.0"
-  },
-  "devDependencies": {
-    "@types/css-tree": "2.3.4",
-    "@types/node": "18.19.3",
-    "typescript": "5.3.3"
-  }
+	"name": "fetch-pretendard",
+	"version": "0.0.1",
+	"private": true,
+	"type": "module",
+	"bin": "./dist/main.js",
+	"scripts": {
+		"build": "tsc",
+		"start": "node ./dist/main.js",
+		"lint": "eslint \"**/*.ts\"",
+		"type:check": "tsc --noEmit"
+	},
+	"dependencies": {
+		"@nix6839/prettier-config": "2.1.0",
+		"axios": "1.6.2",
+		"css-tree": "2.3.1",
+		"csstree-validator": "3.0.0",
+		"prettier": "3.1.0"
+	},
+	"devDependencies": {
+		"@types/css-tree": "2.3.4",
+		"@types/node": "18.19.3",
+		"typescript": "5.3.3"
+	}
 }

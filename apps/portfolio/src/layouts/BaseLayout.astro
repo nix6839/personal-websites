@@ -6,8 +6,8 @@ import Header from '../components/Header.astro';
 import type { HeaderProps } from '../components/Header.astro';
 
 interface Props {
-  title: string;
-  pageName: HeaderProps['pageName'];
+	title: string;
+	pageName: HeaderProps['pageName'];
 }
 
 const { title, pageName } = Astro.props;
@@ -15,47 +15,47 @@ const { title, pageName } = Astro.props;
 
 <!doctype html>
 <html lang="ko" class="bg-primary font-default scheme-dark">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" href="/favicon.ico" />
-    <title>{title}</title>
-  </head>
-  <body>
-    <Header {pageName} />
-    <slot />
-  </body>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" href="/favicon.ico" />
+		<title>{title}</title>
+	</head>
+	<body>
+		<Header {pageName} />
+		<slot />
+	</body>
 </html>
 
 <script>
-  const isAlerted =
-    sessionStorage.getItem('not-supported-browser-alerted') !== null;
+	const isAlerted =
+		sessionStorage.getItem('not-supported-browser-alerted') !== null;
 
-  if (!isAlerted) {
-    sessionStorage.setItem('not-supported-browser-alerted', 'true');
-    alertWhenNotSupportedBrowser();
-  }
+	if (!isAlerted) {
+		sessionStorage.setItem('not-supported-browser-alerted', 'true');
+		alertWhenNotSupportedBrowser();
+	}
 
-  function alertWhenNotSupportedBrowser() {
-    const isIE = 'documentMode' in window.document;
-    const isFirefox = navigator.userAgent.toLowerCase().includes('firefox');
-    const chromiumVersion = getChromiumVersion();
+	function alertWhenNotSupportedBrowser() {
+		const isIE = 'documentMode' in window.document;
+		const isFirefox = navigator.userAgent.toLowerCase().includes('firefox');
+		const chromiumVersion = getChromiumVersion();
 
-    if (
-      isIE ||
-      isFirefox ||
-      chromiumVersion === null ||
-      chromiumVersion < 117
-    ) {
-      alert(
-        '현재 브라우저에서 작동하지 않는 기능들이 있을 수도 있습니다. 최신 버전의 크롬 혹은 엣지를 이용해 주세요.',
-      );
-    }
+		if (
+			isIE ||
+			isFirefox ||
+			chromiumVersion === null ||
+			chromiumVersion < 117
+		) {
+			alert(
+				'현재 브라우저에서 작동하지 않는 기능들이 있을 수도 있습니다. 최신 버전의 크롬 혹은 엣지를 이용해 주세요.',
+			);
+		}
 
-    function getChromiumVersion() {
-      const raw = navigator.userAgent.match(/Chrom(e|ium)\/([0-9]+)\./);
+		function getChromiumVersion() {
+			const raw = navigator.userAgent.match(/Chrom(e|ium)\/([0-9]+)\./);
 
-      return raw === null ? null : parseInt(raw[2], 10);
-    }
-  }
+			return raw === null ? null : parseInt(raw[2], 10);
+		}
+	}
 </script>

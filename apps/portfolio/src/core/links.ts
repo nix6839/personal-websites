@@ -1,10 +1,10 @@
 const Links = {
-  root: '/',
+	root: '/',
 
-  works: '/works',
-  work(slug: string) {
-    return `${this.works}/${slug}` as const;
-  },
+	works: '/works',
+	work(slug: string) {
+		return `${this.works}/${slug}` as const;
+	},
 } as const;
 
 export default Links;

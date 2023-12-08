@@ -2,9 +2,9 @@ import baseConfig from '../../prettier.config.js';
 
 /** @satisfies {import('prettier').Config} */
 const config = {
-  ...baseConfig,
+	...baseConfig,
 
-  tailwindConfig: './tailwind.config.ts',
+	tailwindConfig: './tailwind.config.ts',
 };
 
 export default config;

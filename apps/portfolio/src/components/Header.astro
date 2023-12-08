@@ -8,7 +8,7 @@ import NotReadyDialogButton from './NotReadyDialogButton.astro';
 export type { Props as HeaderProps };
 
 interface Props {
-  pageName: string;
+	pageName: string;
 }
 
 const { pageName } = Astro.props;
@@ -18,107 +18,107 @@ const NAV_ID = 'nav-menu';
 ---
 
 <header class="sticky top-0 border-b bg-primary">
-  <div class="flex items-center justify-between px-5 py-4">
-    <span aria-hidden="true" class="font-mono text-[1.5rem]">
-      <span class="text-primary">yeong-woo.</span>
-      <span class="text-brand">{pageName}</span>
-    </span>
-    <Button
-      id={NAV_TOGGLE_BUTTON_ID}
-      aria-label="탐색 메뉴 열기"
-      aria-expanded="false"
-      aria-controls="nav-menu"
-      class="rounded-md p-2 text-[1.875rem] hover:bg-button-hover focus-visible:bg-button-hover active:bg-button-pressed"
-    >
-      <svg
-        width="1em"
-        height="1em"
-        viewBox="0 0 48 48"
-        aria-hidden="true"
-        class="text-icon-primary"
-      >
-        <path fill="currentColor" d={listIconPath}></path>
-      </svg>
-    </Button>
-  </div>
+	<div class="flex items-center justify-between px-5 py-4">
+		<span aria-hidden="true" class="font-mono text-[1.5rem]">
+			<span class="text-primary">yeong-woo.</span>
+			<span class="text-brand">{pageName}</span>
+		</span>
+		<Button
+			id={NAV_TOGGLE_BUTTON_ID}
+			aria-label="탐색 메뉴 열기"
+			aria-expanded="false"
+			aria-controls="nav-menu"
+			class="rounded-md p-2 text-[1.875rem] hover:bg-button-hover focus-visible:bg-button-hover active:bg-button-pressed"
+		>
+			<svg
+				width="1em"
+				height="1em"
+				viewBox="0 0 48 48"
+				aria-hidden="true"
+				class="text-icon-primary"
+			>
+				<path fill="currentColor" d={listIconPath}></path>
+			</svg>
+		</Button>
+	</div>
 
-  <nav
-    id={NAV_ID}
-    class="overflow-y-hidden transition-[height] duration-500"
-    style={{ height: 0 }}
-  >
-    <InternalLink
-      href={Links.root}
-      class="block p-6 text-[1.5rem] font-bold text-secondary"
-    >
-      홈
-    </InternalLink>
-    <InternalLink
-      href={Links.works}
-      class="block p-6 text-[1.5rem] font-bold text-secondary"
-    >
-      작업물
-    </InternalLink>
-    {/* TODO: Uncomment */}
-    {
-      /* <a
+	<nav
+		id={NAV_ID}
+		class="overflow-y-hidden transition-[height] duration-500"
+		style={{ height: 0 }}
+	>
+		<InternalLink
+			href={Links.root}
+			class="block p-6 text-[1.5rem] font-bold text-secondary"
+		>
+			홈
+		</InternalLink>
+		<InternalLink
+			href={Links.works}
+			class="block p-6 text-[1.5rem] font-bold text-secondary"
+		>
+			작업물
+		</InternalLink>
+		{/* TODO: Uncomment */}
+		{
+			/* <a
       href="https://blog.yeongwoo.dev/"
       class="block p-6 text-[1.5rem] font-bold text-secondary"
     > */
-    }
-    <NotReadyDialogButton
-      class="w-full p-6 text-[1.5rem] font-bold text-secondary"
-    >
-      블로그
-    </NotReadyDialogButton>
-    {/* </a> */}
-  </nav>
+		}
+		<NotReadyDialogButton
+			class="w-full p-6 text-[1.5rem] font-bold text-secondary"
+		>
+			블로그
+		</NotReadyDialogButton>
+		{/* </a> */}
+	</nav>
 </header>
 
 <script>
-  import { listIconPath, xIconPath } from './svgs/icons/icon-path.js';
+	import { listIconPath, xIconPath } from './svgs/icons/icon-path.js';
 
-  const NAV_TOGGLE_BUTTON_ID = 'open-nav-button';
+	const NAV_TOGGLE_BUTTON_ID = 'open-nav-button';
 
-  const navToggleButtonEl = document.getElementById(NAV_TOGGLE_BUTTON_ID);
-  if (!(navToggleButtonEl instanceof HTMLButtonElement)) {
-    throw new Error(`Can not find "${NAV_TOGGLE_BUTTON_ID}" element`);
-  }
-  const buttonIconPathEl = navToggleButtonEl
-    .getElementsByTagName('path')
-    .item(0);
-  if (!(buttonIconPathEl instanceof SVGPathElement)) {
-    throw new Error(
-      `Can not find <path> child of "${NAV_TOGGLE_BUTTON_ID}" element`,
-    );
-  }
+	const navToggleButtonEl = document.getElementById(NAV_TOGGLE_BUTTON_ID);
+	if (!(navToggleButtonEl instanceof HTMLButtonElement)) {
+		throw new Error(`Can not find "${NAV_TOGGLE_BUTTON_ID}" element`);
+	}
+	const buttonIconPathEl = navToggleButtonEl
+		.getElementsByTagName('path')
+		.item(0);
+	if (!(buttonIconPathEl instanceof SVGPathElement)) {
+		throw new Error(
+			`Can not find <path> child of "${NAV_TOGGLE_BUTTON_ID}" element`,
+		);
+	}
 
-  const controlledId = navToggleButtonEl.getAttribute('aria-controls');
-  if (controlledId === null) {
-    throw new Error(
-      `There is no controlled element by "${NAV_TOGGLE_BUTTON_ID}"`,
-    );
-  }
-  const navEl = document.getElementById(controlledId);
-  if (!(navEl instanceof HTMLElement)) {
-    throw new Error(
-      `Can not find "${controlledId}" element that controlled by "${NAV_TOGGLE_BUTTON_ID}"`,
-    );
-  }
+	const controlledId = navToggleButtonEl.getAttribute('aria-controls');
+	if (controlledId === null) {
+		throw new Error(
+			`There is no controlled element by "${NAV_TOGGLE_BUTTON_ID}"`,
+		);
+	}
+	const navEl = document.getElementById(controlledId);
+	if (!(navEl instanceof HTMLElement)) {
+		throw new Error(
+			`Can not find "${controlledId}" element that controlled by "${NAV_TOGGLE_BUTTON_ID}"`,
+		);
+	}
 
-  navToggleButtonEl.addEventListener('click', function () {
-    const isAriaExpanded = this.ariaExpanded === 'true' ? true : false;
+	navToggleButtonEl.addEventListener('click', function () {
+		const isAriaExpanded = this.ariaExpanded === 'true' ? true : false;
 
-    if (isAriaExpanded) {
-      this.ariaExpanded = 'false';
-      navToggleButtonEl.ariaLabel = '탐색 메뉴 열기';
-      navEl.style.height = '0';
-      buttonIconPathEl.setAttribute('d', listIconPath);
-    } else {
-      this.ariaExpanded = 'true';
-      navToggleButtonEl.ariaLabel = '탐색 메뉴 닫기';
-      navEl.style.height = `${navEl.scrollHeight}px`;
-      buttonIconPathEl.setAttribute('d', xIconPath);
-    }
-  });
+		if (isAriaExpanded) {
+			this.ariaExpanded = 'false';
+			navToggleButtonEl.ariaLabel = '탐색 메뉴 열기';
+			navEl.style.height = '0';
+			buttonIconPathEl.setAttribute('d', listIconPath);
+		} else {
+			this.ariaExpanded = 'true';
+			navToggleButtonEl.ariaLabel = '탐색 메뉴 닫기';
+			navEl.style.height = `${navEl.scrollHeight}px`;
+			buttonIconPathEl.setAttribute('d', xIconPath);
+		}
+	});
 </script>
