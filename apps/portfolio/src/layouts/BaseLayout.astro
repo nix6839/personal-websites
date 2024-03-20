@@ -37,16 +37,9 @@ const { title, pageName } = Astro.props;
 	}
 
 	function alertWhenNotSupportedBrowser() {
-		const isIE = 'documentMode' in window.document;
-		const isFirefox = navigator.userAgent.toLowerCase().includes('firefox');
 		const chromiumVersion = getChromiumVersion();
 
-		if (
-			isIE ||
-			isFirefox ||
-			chromiumVersion === null ||
-			chromiumVersion < 117
-		) {
+		if (chromiumVersion === null || chromiumVersion < 117) {
 			alert(
 				'현재 브라우저에서 작동하지 않는 기능들이 있을 수도 있습니다. 최신 버전의 크롬 혹은 엣지를 이용해 주세요.',
 			);
