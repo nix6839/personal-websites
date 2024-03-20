@@ -48,9 +48,9 @@ jobs:
         uses: nrwl/nx-set-shas@v4
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v3
         with:
-          version: 8.15.0
+          version: 8.15.5
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
