@@ -18,4 +18,5 @@ nx-cloud.env
 .DS_Store
 Thumbs.db
 
+# Caches
 .nx/cache/
