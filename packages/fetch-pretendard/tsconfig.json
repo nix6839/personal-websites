@@ -1,5 +1,7 @@
 {
 	"compilerOptions": {
+		"checkJs": true,
+
 		"target": "ES2022",
 		"lib": ["ESNext"],
 		"module": "NodeNext",
@@ -12,8 +14,6 @@
 		"verbatimModuleSyntax": true,
 		"resolveJsonModule": true,
 
-		"incremental": true,
-
-		"outDir": "./dist"
+		"noEmit": true
 	}
 }

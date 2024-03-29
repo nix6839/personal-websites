@@ -1,10 +1,10 @@
 import { parseArgs as nodeParseArgs } from 'node:util';
-import isUrl from '../lib/is-url.js';
 
-import type { ParseArgsConfig } from 'node:util';
+/**
+ * @typedef {NonNullable<import('node:util').ParseArgsConfig['options']>} ParseArgsOptionsConfig
+ */
 
-type ParseArgsOptionsConfig = NonNullable<ParseArgsConfig['options']>;
-
+/** @satisfies {ParseArgsOptionsConfig} */
 const options = {
 	'css-url': {
 		type: 'string',
@@ -15,7 +15,7 @@ const options = {
 	'css-output-path': {
 		type: 'string',
 	},
-} satisfies ParseArgsOptionsConfig;
+};
 
 export default function parseArgs() {
 	const { values } = nodeParseArgs({ options });
@@ -34,7 +34,7 @@ export default function parseArgs() {
 		throw new Error('Need --fontOutputDir <dir> argument.');
 	}
 
-	if (!isUrl(cssUrl)) {
+	if (!URL.canParse(cssUrl)) {
 		throw new Error(`"${cssUrl}" is a invalid URL.`);
 	}
 

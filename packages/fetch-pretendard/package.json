@@ -3,12 +3,11 @@
 	"version": "0.0.1",
 	"private": true,
 	"type": "module",
-	"bin": "./dist/main.js",
+	"bin": "./src/main.js",
 	"scripts": {
-		"build": "tsc",
-		"start": "node ./dist/main.js",
+		"start": "node ./src/main.js",
 		"lint": "eslint \"**/*.ts\"",
-		"type:check": "tsc --noEmit"
+		"type:check": "tsc"
 	},
 	"dependencies": {
 		"@nix6839/prettier-config": "2.2.0",
