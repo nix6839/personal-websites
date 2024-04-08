@@ -7,7 +7,8 @@
 			"cache": true
 		},
 		"type:check": {
-			"cache": true
+			"cache": true,
+			"outputs": ["{projectRoot}/.astro"]
 		}
 	}
 }
