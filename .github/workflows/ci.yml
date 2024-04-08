@@ -53,11 +53,11 @@ jobs:
       - name: Check code format
         run: pnpm format:check
 
-      - name: Linting
-        run: pnpm lint
-
       - name: Check type
         run: pnpm type:check
+
+      - name: Linting
+        run: pnpm lint
 
       - name: Build
         run: pnpm build

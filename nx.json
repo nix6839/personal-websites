@@ -6,15 +6,6 @@
 		"build": {
 			"cache": true
 		},
-		"lint": {
-			"cache": true,
-			"inputs": [
-				"default",
-				"{workspaceRoot}/.eslintrc.cjs",
-				"{projectRoot}/.eslintrc.cjs",
-				{ "externalDependencies": ["eslint"] }
-			]
-		},
 		"type:check": {
 			"cache": true
 		}

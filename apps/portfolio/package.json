@@ -8,7 +8,6 @@
 		"start": "astro dev",
 		"build": "astro build",
 		"preview": "astro preview",
-		"lint": "eslint \"**/*.{astro,ts}\"",
 		"type:check": "astro check && tsc",
 		"fetch-fonts": "fetch-pretendard --font-output-dir ./public/fonts --css-output-path ./src/styles/pretendardvariable-dynamic-subset.css --css-url 'https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css'"
 	},
