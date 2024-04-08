@@ -21,7 +21,9 @@ try {
 async function main() {
 	const { cssUrl, fontOutputDir, cssOutputPath } = parseArgs();
 
-	const css = /** @type {string} */ ((await axios.get(cssUrl)).data);
+	const css = /** @type {import('axios').AxiosResponse<string>} */ (
+		await axios.get(cssUrl)
+	).data;
 
 	if (!isValidCSS(css)) {
 		throw new Error(`"${cssUrl}" is a invalid CSS.`);
